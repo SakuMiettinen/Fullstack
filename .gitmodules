@@ -1,6 +1,3 @@
-[submodule "vast-sands-83469"]
-	path = vast-sands-83469
-	url = https://git.heroku.com/vast-sands-83469.git
 [submodule "Coursework"]
 	path = Coursework
 	url = https://git.heroku.com/vast.sands.83469.git
