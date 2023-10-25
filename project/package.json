@@ -1,0 +1,23 @@
+{
+    "name": "mean-stack-tutorial",
+    "version": "1.0.0",
+    "description": "MEAN stack tutorial project",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app"
+    },
+    "dependencies": {
+        "bcryptjs": "*",
+        "body-parser": "*",
+        "cors": "*",
+        "express": "*",
+        "express-session": "^1.17.3",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^4.10.8",
+        "passport": "*",
+        "passport-jwt": "*"
+    },
+    "author": "",
+    "license": "ISC"
+}
