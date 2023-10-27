@@ -28,6 +28,7 @@ app.use(cors())
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")))
 
+// Based on user "AJS" answer on https://stackoverflow.com/questions/9049993/node-js-how-to-limit-the-http-request-size-and-upload-file-size
 app.use(bodyParser.json({ limit: "50mb" }))
 app.use(
     bodyParser.urlencoded({

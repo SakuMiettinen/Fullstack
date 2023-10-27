@@ -1,6 +1,4 @@
 const mongoose = require("mongoose")
-const bcrypt = require("bcryptjs")
-const config = require("../config/database")
 
 // Quote schema
 const QuoteSchema = mongoose.Schema({
@@ -45,6 +43,9 @@ module.exports.findUserQuotes = (username, callback) => {
 
 module.exports.getFeaturedQuotes = callback => {
     Quote.count({}, (err, totalDocuments) => {
+        // All the code under this is created by asking chatGPT to give a way to get 10
+        // random documents from a collection. ChatGPT created a bunch of unnecessary code which
+        // has been removed
         const pipeline = [{ $sample: { size: 10 } }]
 
         Quote.aggregate(pipeline)

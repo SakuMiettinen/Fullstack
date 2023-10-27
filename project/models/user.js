@@ -35,13 +35,13 @@ module.exports.getUserById = (id, callback) => {
 
 module.exports.getUserByUsername = (username, callback) => {
     const query = { username: username }
-    User.findOne(query).then(user => {
-        if (user) {
+    User.findOne(query)
+        .then(user => {
             callback(null, user)
-        } else {
-            callback("error", null)
-        }
-    })
+        })
+        .catch(err => {
+            callback(err, null)
+        })
 }
 
 module.exports.addUser = (newUser, callback) => {
