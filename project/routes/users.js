@@ -71,9 +71,9 @@ router.get(
     }
 )
 
-// Drawing page
+// Quoting page
 router.get(
-    "/draw",
+    "/quote",
     passport.authenticate("jwt", { session: false }),
     (req, res, next) => {
         res.json({ user: req.user })
@@ -88,7 +88,6 @@ router.post("/saveQuote", (req, res, next) => {
         date: req.body.date,
     })
 
-    console.log(newQuote)
     Quote.saveQuote(newQuote, (err, quote) => {
         if (err) {
             console.log(err)
@@ -116,7 +115,6 @@ router.get(
 
 // Featured quotes
 router.get("/quotes/featured", (req, res, next) => {
-    console.log("GOT FEATURED REQUEST")
     Quote.getFeaturedQuotes((err, docs) => {
         if (err) {
             console.log(err)
