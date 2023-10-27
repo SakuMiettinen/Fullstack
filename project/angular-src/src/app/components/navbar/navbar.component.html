@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">MEAN Auth App</a>
+<nav class="navbar navbar-expand-md navbar-dark">
+  <a class="navbar-brand text-dark" href="#">Quote app</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -12,14 +12,16 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse text-dark" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li
         class="nav-item"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <a class="nav-link" [routerLink]="['/']">Home <span></span></a>
+        <a class="nav-link text-dark" [routerLink]="['/']"
+          >Home <span></span
+        ></a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -29,7 +31,14 @@
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <a class="nav-link" [routerLink]="['/dashboard']">Dashboard </a>
+        <a class="nav-link" [routerLink]="['/quote']">Create quote </a>
+      </li>
+      <li
+        class="nav-item"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link" [routerLink]="['/featured']">Featured </a>
       </li>
       <li
         class="nav-item"

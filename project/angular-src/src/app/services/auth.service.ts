@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http, Headers } from "@angular/http";
-import { HttpModule } from "@angular/http";
+import { Http, Headers, HttpModule, URLSearchParams } from "@angular/http";
 import "rxjs/add/operator/map";
 import { tokenNotExpired } from "angular2-jwt";
 
@@ -63,5 +62,40 @@ export class AuthService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
+  }
+
+  saveQuote(quoteData) {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http
+      .post("http://localhost:3000/users/saveQuote", quoteData, {
+        headers: headers,
+      })
+      .map((res) => res.json());
+  }
+
+  getUserQuotes(username) {
+    let headers = new Headers();
+    this.loadToken();
+    headers.append("Authorization", this.authToken);
+    headers.append("Content-Type", "application/json");
+
+    let params = new URLSearchParams();
+    params.append("username", username);
+    return this.http.get(`http://localhost:3000/users/quotes`, {
+      headers: headers,
+      search: params,
+    });
+  }
+
+  getFeaturedQuotes() {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+
+    return this.http
+      .get(`http://localhost:3000/users/quotes/featured`, {
+        headers: headers,
+      })
+      .map((res) => res.json());
   }
 }

@@ -1,7 +1,23 @@
-<div *ngIf="user">
+<div *ngIf="user" class="bg-dark">
   <h2 class="page-header">{{ user.name }}</h2>
   <ul class="list-group">
     <li class="list-group-item">Username : {{ user.username }}</li>
     <li class="list-group-item">Email : {{ user.email }}</li>
   </ul>
+  <div class="quotes">
+    <h3>Your quotes</h3>
+    <p *ngIf="quotes?.length < 1" class="quoteHelp">
+      Create your first quote by clicking the button below.
+    </p>
+    <button class="createQuoteBtn btn btn-primary" [routerLink]="['/quote']">
+      Create a quote
+    </button>
+    <div *ngFor="let i of quotes">
+      <app-quote-card
+        [creator]="i.username"
+        [date]="i.date"
+        [quote]="i.quote"
+      ></app-quote-card>
+    </div>
+  </div>
 </div>

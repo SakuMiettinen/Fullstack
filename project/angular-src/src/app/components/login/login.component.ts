@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { FlashMessagesService } from "angular2-flash-messages";
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: "app-login",
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
           cssClass: "alert-success",
           timeout: 5000,
         });
-        this.router.navigate(["dashboard"]);
+        this.router.navigate(["profile"]);
       } else {
         this.flashMessage.show(data.msg, {
           cssClass: "alert-danger",

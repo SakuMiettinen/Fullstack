@@ -1,0 +1,22 @@
+nav {
+    background: -webkit-linear-gradient(to right, #46fff3, #4586ff, #a334ed);
+    background: linear-gradient(to right, #46fff3, #4586ff, #a334ed);;
+}
+
+a {color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))}
+
+li > a:hover {
+    color: lightgray !important;
+}
+
+.active > a {
+    color: lightgray !important;
+}
+
+.active > a:hover {
+    color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity)) !important;
+}
+
+.navbar-brand {
+    margin-left: 1em;
+}

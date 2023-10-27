@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken")
 const config = require("../config/database")
 
 const User = require("../models/user")
+const Quote = require("../models/quote")
 
 // Register
 router.post("/register", (req, res, next) => {
@@ -13,6 +14,7 @@ router.post("/register", (req, res, next) => {
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,
+        images: req.body.images,
     })
 
     User.addUser(newUser, (err, user) => {
@@ -68,5 +70,60 @@ router.get(
         res.json({ user: req.user })
     }
 )
+
+// Drawing page
+router.get(
+    "/draw",
+    passport.authenticate("jwt", { session: false }),
+    (req, res, next) => {
+        res.json({ user: req.user })
+    }
+)
+
+// Save quote
+router.post("/saveQuote", (req, res, next) => {
+    let newQuote = new Quote({
+        quote: req.body.quote,
+        username: req.body.username,
+        date: req.body.date,
+    })
+
+    console.log(newQuote)
+    Quote.saveQuote(newQuote, (err, quote) => {
+        if (err) {
+            console.log(err)
+            res.json({ success: false, msg: "Saving quote failed" })
+        } else {
+            res.json({ success: true, msg: "Quote saved" })
+        }
+    })
+})
+
+// Single user quotes
+router.get(
+    "/quotes",
+    passport.authenticate("jwt", { session: false }),
+    (req, res, next) => {
+        Quote.findUserQuotes(req.query.username, (err, docs) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.json({ quotes: docs })
+            }
+        })
+    }
+)
+
+// Featured quotes
+router.get("/quotes/featured", (req, res, next) => {
+    console.log("GOT FEATURED REQUEST")
+    Quote.getFeaturedQuotes((err, docs) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.json({ featuredQuotes: docs })
+        }
+    })
+})
 
 module.exports = router

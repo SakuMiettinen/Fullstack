@@ -9,8 +9,10 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { HomeComponent } from "./components/home/home.component";
-import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { FeaturedComponent } from "./components/featured/featured.component";
 import { ProfileComponent } from "./components/profile/profile.component";
+import { QuoteComponent } from "./components/quote/quote.component";
+import { QuoteCardComponent } from "./components/quote-card/quote-card.component";
 
 import { ValidateService } from "./services/validate.service";
 import { AuthService } from "./services/auth.service";
@@ -22,11 +24,11 @@ const appRoutes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   {
-    path: "dashboard",
-    component: DashboardComponent,
-    canActivate: [AuthGuard],
+    path: "featured",
+    component: FeaturedComponent,
   },
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: "quote", component: QuoteComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
@@ -36,12 +38,14 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    DashboardComponent,
+    FeaturedComponent,
     ProfileComponent,
+    QuoteComponent,
+    QuoteCardComponent,
   ],
   imports: [
-    BrowserModule,
     FormsModule,
+    BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule,

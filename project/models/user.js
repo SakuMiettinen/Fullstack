@@ -53,7 +53,6 @@ module.exports.addUser = (newUser, callback) => {
             newUser
                 .save()
                 .then(user => {
-                    console.log("working\n\n\n")
                     callback(null, user)
                 })
                 .catch(err => {
