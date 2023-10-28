@@ -17,13 +17,7 @@ export class QuoteComponent implements OnInit {
     private flashMessage: FlashMessagesService
   ) {}
 
-  ngOnInit() {
-    const saveQuote = document.getElementById("saveQuote");
-    saveQuote.addEventListener("click", () => this.saveQuote());
-
-    const clearQuote = document.getElementById("clearQuote");
-    clearQuote.addEventListener("click", () => this.clearQuote());
-  }
+  ngOnInit() {}
 
   clearQuote() {
     const quoteInput = <HTMLInputElement>document.getElementById("quoteInput");

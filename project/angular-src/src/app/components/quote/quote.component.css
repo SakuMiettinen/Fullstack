@@ -57,3 +57,17 @@ h1 {
     height: 504px;
     margin-top: 2em;
 }
+
+button {
+    background: -webkit-linear-gradient(to right, #46fff3, #4586ff, #a334ed);
+    background: linear-gradient(to right, #46fff3, #4586ff, #a334ed);
+    border: none;
+    margin: 1em 0 2em 0;
+    color: black;
+    border-radius: 10px;
+}
+
+
+button:hover {
+     color: white;
+}

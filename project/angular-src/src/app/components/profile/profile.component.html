@@ -12,11 +12,11 @@
     <button class="createQuoteBtn btn btn-primary" [routerLink]="['/quote']">
       Create a quote
     </button>
-    <div *ngFor="let i of quotes">
+    <div *ngFor="let quote of quotes">
       <app-quote-card
-        [creator]="i.username"
-        [date]="i.date"
-        [quote]="i.quote"
+        [creator]="quote.username"
+        [date]="quote.date"
+        [quote]="quote.quote"
       ></app-quote-card>
     </div>
   </div>
